@@ -70,3 +70,37 @@ function promptUser(answers) {
                 teamArray.push(newIntern);
                 addUser();
             });
+
+        } else if (res.role === "Manager") {
+            inquirer.prompt([
+                {
+                    name: "name",
+                    message: "What is your name?",
+                    type: "input"
+                },
+                {
+                    name: "email",
+                    type: "input",
+                    message: "What is your email?"
+                },
+                {
+                    name: "office",
+                    type: "input",
+                    message: "What is your office number?"
+                }
+            ]).then(function (managerRes) {
+                var newManager = new Manager(managerRes.name, managerRes.email, uniqueId, managerRes.office);
+                uniqueId = uniqueId + 1; 
+                console.log(newManager);
+                teamArray.push(newManager);
+                addUser();
+            });
+        };
+       
+
+    })
+        .catch(function (err) {
+            console.log(err);
+        });
+
+};
