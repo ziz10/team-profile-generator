@@ -45,3 +45,28 @@ function promptUser(answers) {
                 addUser();
                 
             });
+
+        } else if (res.role === "Intern") {
+            inquirer.prompt([
+                {
+                    name: "name",
+                    message: "What is your name?",
+                    type: "input"
+                },
+                {
+                    name: "email",
+                    type: "input",
+                    message: "What is your email?"
+                },
+                {
+                    name: "school",
+                    type: "input",
+                    message: "Where did you graduate from college?"
+                }
+            ]).then(function (internRes) {
+                var newIntern = new Intern(internRes.name, internRes.email, uniqueId, internRes.school);
+                uniqueId = uniqueId + 1; // could be "uniqueId++"
+                console.log(newIntern)
+                teamArray.push(newIntern);
+                addUser();
+            });
