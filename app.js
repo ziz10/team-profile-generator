@@ -40,7 +40,6 @@ function promptUser(answers) {
                 let newEngineer = new Engineer(engineerRes.name, engineerRes.email, uniqueId, engineerRes.github);
                 uniqueId = uniqueId + 1; // could be "uniqueId++"
                 console.log(newEngineer);
-                // run promptUser (called recursion) so that you can add multiple Engineers and id changes incrementally
                 teamArray.push(newEngineer);
                 addUser();
                 
